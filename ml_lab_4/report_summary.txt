@@ -1,0 +1,23 @@
+MOHAMMED MIR FAZLAI ALI
+PES2UG23CS346
+
+SUMMARY
+The lab’s key finding was that systematic model selection—grounded in cross-validation, appropriate metrics, and hyperparameter tuning—matters more than any single algorithm choice, and that using a well-tested library like scikit-learn accelerates this process without sacrificing rigor. The complementary takeaway is that manual implementations deepen understanding of the math and mechanics, but libraries provide the consistency, speed, and reliability needed to evaluate multiple models fairly and reproducibly.
+
+Key findings
+- Cross-validation improves reliability: Using k-fold cross-validation gave more stable performance estimates than a single split, reducing variance in results and preventing misleading conclusions from a “lucky” or “unlucky” split. This was especially clear when comparing similar models whose performance differences were small.  
+- Metrics drive decisions: Accuracy was insufficient on skewed or imbalanced data; precision, recall, F1, and ROC-AUC changed which model looked “best.” The lab showed that choosing the evaluation metric aligned with the real objective (e.g., minimizing false negatives) can flip the ranking of models.  
+- Hyperparameters matter: Small changes (e.g., C and kernel in SVMs, depth in trees, regularization strength in linear models) produced large swings in validation scores. Random search or coarse-to-fine grid search found competitive settings much faster than exhaustive grids.  
+- Bias–variance balancing: Simpler models (regularized linear/logistic) generalized well with fewer data and were easier to interpret, while more flexible models (trees/ensembles, nonlinear kernels) fit complex patterns but needed careful tuning and validation to avoid overfitting.  
+
+Manual vs scikit-learn: trade-offs
+- What manual builds teach: Implementing components (e.g., gradient updates, loss/regularization, splitting criteria) made failure modes obvious—poor feature scaling hurting convergence, overly large learning rates diverging, or overfitting from weak regularizers. This “glass box” experience built intuition about why cross-validation and proper metrics are essential.  
+- Where scikit-learn excels: The library standardized APIs (fit/predict/score), pipelines, and model selection utilities (cross_val_score, GridSearchCV/RandomizedSearchCV), making it straightforward to compare many models under identical validation protocols. Built-in preprocessing (StandardScaler, OneHotEncoder) and Pipelines reduced leakage risk and ensured repeatability.  
+- Productivity vs control: Manual code gave full control and transparency but required significant time to reach correctness and efficiency. Scikit-learn’s implementations were fast, numerically stable, and well-tested, enabling broader model sweeps and more robust comparisons in the same time.  
+- Interpretability and deployment: For explainability-focused tasks, simpler scikit-learn models paired with feature importance or coefficients were quick to analyze. For bespoke research ideas, manual or custom code was useful early, but scikit-learn remained the backbone for fair benchmarking and final selection.  
+
+Main takeaways
+- The most important skill is designing a rigorous selection pipeline: define the right metric, use cross-validation, and tune hyperparameters systematically.  
+- Use manual implementations to build intuition and diagnose issues; use scikit-learn for reliable, scalable experimentation and to prevent subtle evaluation mistakes.  
+- Prefer the simplest model that meets the metric and generalization goals; reserve complexity for when cross-validated improvements are consistent and material.  
+- Reproducibility and guardrails (pipelines, consistent CV splits, seed control) are as critical as the model choice itself.
