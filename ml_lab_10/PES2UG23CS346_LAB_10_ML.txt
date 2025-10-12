@@ -1,0 +1,26 @@
+Report: Week 10 – SVM Classifier Lab
+
+Objective:
+The experiment focuses on understanding and implementing Support Vector Machine (SVM) classifiers using different kernel functions. It demonstrates how SVMs can separate classes in both linear and non-linear datasets.
+
+Overview:
+The notebook introduces SVM theory, including the concept of the kernel trick, and compares the behavior of three kernel types:
+
+Linear Kernel: Produces straight-line decision boundaries.
+
+RBF Kernel: Handles complex, non-linear data separations.
+
+Polynomial Kernel: Forms curved, polynomial-based boundaries.
+
+Methodology:
+
+Data is generated and preprocessed using datasets such as the Moons dataset, which is ideal for non-linear classification tasks.
+
+The SVM models are trained with each kernel type.
+
+A custom visualization function is used to plot the decision boundaries and observe how each model separates the data.
+
+Performance is evaluated using standard classification metrics.
+
+Conclusion:
+The notebook clearly illustrates how different SVM kernels affect decision boundaries and model performance. It reinforces understanding of linear vs. non-linear separability and the practical use of the kernel trick in SVMs
